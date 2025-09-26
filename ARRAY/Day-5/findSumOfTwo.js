@@ -1,4 +1,4 @@
-// arr= [2, 5, 6, 8, 11], from given array find any two elements hows sum is 14,
+// arr= [2, 5, 6, 8, 11], from given array find any two elements whos sum is 14,
 
 const nums = [2, 5, 6, 8, 11];
 const k = 14;
