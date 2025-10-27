@@ -42,7 +42,7 @@ function getMissingAndRepeatingEle(nums) {
         }
     }
     
-    let missing = (naturalSum - sum) + repeating;
+    let missing = naturalSum - (sum - repeating);
     return { repeating, missing}
 }
 
