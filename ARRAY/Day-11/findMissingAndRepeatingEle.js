@@ -29,7 +29,7 @@
 // }
 
 function getMissingAndRepeatingEle(nums) {
-    let naturalSum = (nums.length * (nums.length + 1) / 2);
+    let naturalSum = (nums.length * (nums.length + 1) / 2);    // sum of natural numbers 
     let sum = 0;
     let hashMap = new Map();
     for (let i = 0; i < nums.length; i++) {
