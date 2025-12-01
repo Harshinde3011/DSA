@@ -1,4 +1,6 @@
-const array = [1,2,1,3,2,4,5]
+// const array = [1,2,1,3,2,4,5];
+const array = "Harshwardhan"
+
 
 function numberOfOccrances(nums) {
     let hashMap = new Map();
