@@ -63,7 +63,9 @@ function findfirstIndex(nums, start, end,target) {
         if (nums[mid] == target) {
             ans = mid;
             end = mid - 1;
-        }else{
+        }else  if (nums[mid] > target) {
+            end = mid - 1;
+        } else {
             start = mid + 1;
         }
     }
@@ -83,8 +85,10 @@ function findlastIndex(nums, start, end, target) {
         if (nums[mid] == target) {
             ans = mid;
             start = mid + 1;
-        }else{
+        }else if (nums[mid] > target) {
             end = mid - 1;
+        } else {
+            start = mid + 1;
         }
     }
 
