@@ -47,3 +47,56 @@ function findFirstAndLastIndex(arr, start, end, target) {
 
 
 console.log(findFirstAndLastIndex(arr, 0, arr.length - 1, 40));
+
+
+// alternate solution
+
+function findfirstIndex(nums, start, end,target) {
+    if (start > end) {
+        return -1;
+    }
+    let ans = -1;
+    
+    while (start <= end) {
+        let mid = Math.floor((start+end)/2);
+
+        if (nums[mid] == target) {
+            ans = mid;
+            end = mid - 1;
+        }else{
+            start = mid + 1;
+        }
+    }
+
+    return ans;
+}
+
+function findlastIndex(nums, start, end, target) {
+    if (start > end) {
+        return -1;
+    }
+    let ans = -1;
+
+    while (start <= end) {
+        let mid = Math.floor((start+end)/2);
+
+        if (nums[mid] == target) {
+            ans = mid;
+            start = mid + 1;
+        }else{
+            end = mid - 1;
+        }
+    }
+
+    return ans;
+}
+
+function findFirstAndLastIndex(nums, target) {
+    return [
+        findfirstIndex(nums, 0, nums.length - 1, target),
+        findlastIndex(nums, 0, nums.length - 1, target)
+    ]
+}
+
+
+console.log(findFirstAndLastIndex(arr, 40));
