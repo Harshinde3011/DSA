@@ -1,5 +1,5 @@
 const arr = [10, 20, 30, 40, 50, 60, 70];
-
+// TC: O(log n)
 function binarySearch(arr, start, end, target) {
     if (start > end) {
         return -1;
