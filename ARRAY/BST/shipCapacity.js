@@ -1,11 +1,11 @@
 
 
-function calculateDays(weights, end){
+function calculateDays(weights, capacity){
     let daysTaken = 1;
     let load = 0;
 
     for(const weight of weights){
-        if(load + weight > end){
+        if(load + weight > capacity){
             daysTaken++;
             load = weight;
         }else{
