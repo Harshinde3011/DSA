@@ -41,3 +41,10 @@ function findMaxNumberOfOnes(matrix) {
 }
 
 console.log(findMaxNumberOfOnes(matrix));
+
+
+// ✅ Time & Space Complexity
+
+// Time: O(n log m)
+
+// Space: O(1)
