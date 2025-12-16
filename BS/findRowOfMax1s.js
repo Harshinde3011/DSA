@@ -1,43 +1,44 @@
 // find row from matrix which has max number of ones, where each row is sorted 
 const matrix = [
-  [0, 0, 0, 1],
-  [0, 1, 1, 1],
-  [0, 0, 1, 1],
-  [0, 0, 0, 0]
+    [0,1],
+    [0,1]
 ]
 
-function findMaxNumberOfOnes(matrix) {
-    let maxOneRow = -1;
-    let countMaxOne = 0;
-    let cols = matrix[0].length;
+function findMaxNumberOfOnes(mat) {
+   if (!mat || mat.length === 0) return [-1, 0];
 
-    for (let i = 0; i < matrix.length; i++) {
-        let start = 0;
-        let end = cols - 1;
-        let firstOneIndex = -1;
+    let rows = mat.length;
+    let cols = mat[0].length;
 
-        while (start <= end) {
-            let mid = Math.floor((start + end) / 2);
+    let maxOnes = 0;
+    let rowIndex = 0;
 
-            if (matrix[i][mid] === 1) {
-                firstOneIndex = mid;
-                end = mid - 1; // move left
+    for (let i = 0; i < rows; i++) {
+        let low = 0, high = cols - 1;
+        let firstOne = -1;
+
+        // Binary search for first 1 in current row
+        while (low <= high) {
+            let mid = Math.floor((low + high) / 2);
+            if (mat[i][mid] === 1) {
+                firstOne = mid;
+                high = mid - 1;
             } else {
-                start = mid + 1; // move right
+                low = mid + 1;
             }
         }
 
-        if (firstOneIndex !== -1) {
-            let onesCount = cols - firstOneIndex;
+        let onesCount = firstOne === -1 ? 0 : cols - firstOne;
 
-            if (onesCount > countMaxOne) {
-                countMaxOne = onesCount;
-                maxOneRow = i;
-            }
+        // Update only if strictly greater
+        if (onesCount > maxOnes) {
+            maxOnes = onesCount;
+            rowIndex = i;
         }
+        // if equal → we do NOTHING (smaller index already kept)
     }
 
-    return maxOneRow;
+    return [rowIndex, maxOnes];
 }
 
 console.log(findMaxNumberOfOnes(matrix));
