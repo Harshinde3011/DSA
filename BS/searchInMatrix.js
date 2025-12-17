@@ -7,23 +7,27 @@ const matrix = [
 ]
 const target = 16
 
-function searchTargetInMatrix(mat, target) {
+function searchMatrix(matrix, target) {
     let row = 0;
-    let col = mat[0].length - 1;
+    let col = matrix[0].length - 1;
 
-    let n = col - 1;
+    // Edge case: 1x1 matrix
+    if (matrix.length === 1 && matrix[0].length === 1) {
+        return matrix[0][0] === target;
+    }
 
-    while (row < n && col >= 0) {
-        if (mat[row][col] === target) {
-            return [row, col];
-        }else if (mat[row][col] < target) {
-            row ++;
-        }else {
-            col--
+    while (row < matrix.length && col >= 0) {
+        if (matrix[row][col] === target) {
+            return true;
+        } else if (matrix[row][col] < target) {
+            row++;      // move down
+        } else {
+            col--;      // move left
         }
     }
 
-    return [-1, -1]
+    return false;
 }
+
 
 console.log(searchTargetInMatrix(matrix, target));
