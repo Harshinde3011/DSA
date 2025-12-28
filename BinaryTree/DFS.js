@@ -1,5 +1,13 @@
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
 class BinarySearchTree {
-    constructor(parameters) {
+    constructor() {
         this.root = null;
     }
 
@@ -76,6 +84,8 @@ class BinarySearchTree {
         }
     }
 }
+
+const bst = new BinarySearchTree()
 
 bst.insert(10);
 bst.insert(5);
