@@ -179,6 +179,49 @@ void setConcept(){ // Sorted, unique, logN complexity
     s.erase(2) // remove 2 from set
 }
 
+void mapConcept(){ // unique keys in sorted order
+    map<int, int> m;
+    map<int, pair<int, int>> mp;
+    map<pair<int,int>, int> mpp;
+
+    m[1] = 2; // {1, 2};
+    m.emplace({ 3, 1 }); // { {1, 2}, { 3, 1 } }
+    m.insert({ 2, 4 }); // { {1, 2}, { 3, 1 }, { 2, 4 } }
+
+    for(auto it: m){
+        cout<< it.first << "  "<< it.second<< endl;
+    }
+
+    cout<< m[1]; // 2
+    cout << m[3]; // 1
+
+    mp.size();
+    mp.empty();
+
+    auto it = m.find(3);
+    cout << *(it).second << endl;
+
+    auto it1 = mp.lower_bound(2); // >= 2
+    auto it2 = mp.upper_bound(2); // > 2
+}
+
+void extraConcepts(){
+    sort(a, a+n); // start, end, you can give start and end according to ur requirement
+    sort(v.begin(), v.end()) // vector
+    sort(a, a+n, greater<int) // sort in decending order
+
+    string s = "123";
+
+    do
+    {
+        /* code */
+        cout<< s << endl;  // 132, 312,321, 231, 213
+    } while (next_permutation(s.begin(), s.end()));
+    
+    int maxelement = max_element(a, a+n);
+    int minelement = min_element(a, a+n);
+}
+
 int main(){
     pairConcept();
     vectorConcept();
